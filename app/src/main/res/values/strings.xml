@@ -3,5 +3,5 @@
     <string name="default_counter_label">Count: 0</string>
     <string name="counter_label">Count: %1$d</string>
     <string name="add_label">Tap Me</string>
-    <string name="reset_label">Reset</string>s
+    <string name="reset_label">Reset</string>
 </resources>
