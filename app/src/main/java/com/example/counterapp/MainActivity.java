@@ -1,6 +1,7 @@
 package com.example.counterapp;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
 
@@ -29,5 +30,15 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
         addButton = findViewById(R.id.addButton);
+
+        // add button on click listener -- increment count var and display in textView
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count++;
+                textView.setText(getString(R.string.counter_label, count));
+            }
+        });
+
     }
 }
