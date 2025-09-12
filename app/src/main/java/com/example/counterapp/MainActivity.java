@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView;
     Button addButton;
+    Button resetButton;
     int count = 0;
 
     @Override
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
         addButton = findViewById(R.id.addButton);
+        resetButton = findViewById(R.id.resetButton);
 
         // add button on click listener -- increment count var and display in textView
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 count++;
                 textView.setText(getString(R.string.counter_label, count));
+            }
+        });
+
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count = 0;
+                textView.setText(R.string.default_counter_label);
             }
         });
 
