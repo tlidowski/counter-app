@@ -7,6 +7,7 @@ import android.widget.TextView;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -18,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     Button addButton;
     Button resetButton;
     int count = 0;
+
+    private static final String TEXT_VALUE = "text_val";
+    private static final String COUNT_VALUE = "count_val";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,17 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         addButton = findViewById(R.id.addButton);
         resetButton = findViewById(R.id.resetButton);
+
+        // restore the saved state on screen rotation
+        if (savedInstanceState != null) {
+            String savedText = savedInstanceState.getString(TEXT_VALUE);
+            if (savedText != null) {
+                textView.setText(savedText);
+            }
+            count = savedInstanceState.getInt(COUNT_VALUE, 0);
+        } else {
+            textView.setText(R.string.default_counter_label);
+        }
 
         // add button on click listener -- increment count var and display in textView
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
                 textView.setTextColor(Color.BLACK);
             }
         });
+    }
 
+    // Save current states for textView label and count var
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString(TEXT_VALUE, textView.getText().toString());
+        savedInstanceState.putInt(COUNT_VALUE, count);
     }
 }
