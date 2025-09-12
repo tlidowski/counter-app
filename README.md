@@ -9,3 +9,6 @@
 - [x] Add Reset Button to set count to 0
 - [x] Change text color when count >= 10
 - [x] Preserve count on screen rotation (onSaveInstanceState)
+
+## App UI
+![App Screenshot](counter-app-image.png)
