@@ -1,5 +1,6 @@
 package com.example.counterapp;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -39,14 +40,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 count++;
                 textView.setText(getString(R.string.counter_label, count));
+
+                if (count >= 10) {
+                    textView.setTextColor(Color.RED);
+                }
             }
         });
 
+        // reset button on click listener -- set count var to 0 and update textView
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 count = 0;
                 textView.setText(R.string.default_counter_label);
+                textView.setTextColor(Color.BLACK);
             }
         });
 
