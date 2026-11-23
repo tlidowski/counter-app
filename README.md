@@ -1,4 +1,7 @@
 # Counter App
+## Overview
+This is a basic counter app for an introduction to Android development.
+
 ##  Requirements
 - [x] TextView in center of the screen displaying "Count: 0"
 - [x] Button labeled "Tap Me"
